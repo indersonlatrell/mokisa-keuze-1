@@ -241,6 +241,86 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   input:focus,select:focus,textarea:focus{border-color:#B8935A !important;outline:none}
   input[type=date]{color-scheme:dark}
 
+/* MOBILE RESPONSIVE FIXES */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.2rem;
+  }
+
+  nav.stuck {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .nav-ul,
+  .nav-cta {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  #home {
+    min-height: 100vh;
+    align-items: flex-end;
+  }
+
+  .hero-content {
+    padding: 0 1.2rem 4rem;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.1;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  section {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+
+  .grid,
+  .cards,
+  .services-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .btn,
+  button,
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .modal,
+  .booking-modal,
+  .form-box {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    padding: 1.2rem !important;
+  }
+} 
+
 </style>
 </head>
 <body>
