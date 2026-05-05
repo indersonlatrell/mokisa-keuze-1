@@ -744,15 +744,21 @@ function sendWA(e){
   const dt=document.getElementById('wdt').value;
   const tr=document.getElementById('wtr').value;
   const nt=document.getElementById('wnt').value.trim();
-  const msg=
-    `🌿 *New Booking — Mokisa Wellness*\n\n`+
-    `*Name:* ${fn} ${ln}\n`+
-    `*Client WhatsApp:* ${wa}\n`+
-    `*Treatment:* ${tr}\n`+
-    `*Date:* ${dt}\n`+
-    `*Masseuse:* ${selM}\n`+
-    (nt?`*Notes:* ${nt}\n`:'')+
-    `\n_Sent via mokisawellness.com_`;
+ const msg =
+`🌿 *New Booking - Mokisa Wellness*
+
+👤 *Name:* ${fn} ${ln}
+📱 *WhatsApp:* ${wa}
+
+💆 *Treatment:* ${tr}
+📅 *Date:* ${dt}
+⏰ *Time:* ${nt}
+
+📝 *Notes:*
+${nt ? nt : "None"}
+
+---
+Sent via mokisawellness.com`;
   const phone='5978626245'; // ← Replace with Mokisa's actual WhatsApp number
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank');
   closeBM();
