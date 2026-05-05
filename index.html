@@ -738,30 +738,31 @@ function pickM(el,val){
 function sendWA(e){
   e.preventDefault();
   if(!selM){alert('Please select your preferred masseuse.');return;}
-  const fn=document.getElementById('wfn').value.trim();
-  const ln=document.getElementById('wln').value.trim();
-  const wa=document.getElementById('wwa').value.trim();
-  const dt=document.getElementById('wdt').value;
-  const time = document.getElementById('wtr').value;   // example id
-const notes = document.getElementById('wnt').value.trim();
- const msg =
-`🌿 *New Booking - Mokisa Wellness*
+
+  const fn = document.getElementById('wfn').value.trim();
+  const ln = document.getElementById('wln').value.trim();
+  const wa = document.getElementById('wwa').value.trim();
+  const dt = document.getElementById('wdt').value;
+  const tr = document.getElementById('wtr').value;
+  const notes = document.getElementById('wnt').value.trim();
+
+  const msg =
+`*New Booking - Mokisa Wellness*
 
 - *Name:* ${fn} ${ln}
 - *WhatsApp:* ${wa}
 
 - *Treatment:* ${tr}
 - *Date:* ${dt}
-- *Time:* ${time}
 
 - *Notes:*
 ${notes ? notes : "None"}
 
 ---
 Sent via mokisawellness.com`;
-  const phone='5978626245'; // ← Replace with Mokisa's actual WhatsApp number
-window.location.href = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
-  closeBM();
+
+  const phone = '5978626245';
+  window.location.href = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
 }
 
 </script>
