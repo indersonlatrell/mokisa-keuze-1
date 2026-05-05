@@ -760,7 +760,7 @@ ${notes ? notes : "None"}
 ---
 Sent via mokisawellness.com`;
   const phone='5978626245'; // ← Replace with Mokisa's actual WhatsApp number
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank');
+window.location.href = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(msg)}`;
   closeBM();
 }
 
