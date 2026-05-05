@@ -742,20 +742,20 @@ function sendWA(e){
   const ln=document.getElementById('wln').value.trim();
   const wa=document.getElementById('wwa').value.trim();
   const dt=document.getElementById('wdt').value;
-  const tr=document.getElementById('wtr').value;
-  const nt=document.getElementById('wnt').value.trim();
+  const time = document.getElementById('wtr').value;   // example id
+const notes = document.getElementById('wnt').value.trim();
  const msg =
 `🌿 *New Booking - Mokisa Wellness*
 
-👤 *Name:* ${fn} ${ln}
-📱 *WhatsApp:* ${wa}
+- *Name:* ${fn} ${ln}
+- *WhatsApp:* ${wa}
 
-💆 *Treatment:* ${tr}
-📅 *Date:* ${dt}
-⏰ *Time:* ${nt}
+- *Treatment:* ${tr}
+- *Date:* ${dt}
+- *Time:* ${time}
 
-📝 *Notes:*
-${nt ? nt : "None"}
+- *Notes:*
+${notes ? notes : "None"}
 
 ---
 Sent via mokisawellness.com`;
