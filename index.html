@@ -928,6 +928,17 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   }
 }
 
+
+/* Native calendar date picker styling */
+#wa_date{
+  color-scheme:dark;
+}
+
+#wa_date::-webkit-calendar-picker-indicator{
+  cursor:pointer;
+  filter:invert(77%) sepia(26%) saturate(559%) hue-rotate(358deg) brightness(88%) contrast(85%);
+}
+
 </style>
 </head>
 <body>
@@ -1542,15 +1553,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         <div class="booking-field">
           <label for="wa_date">Preferred Date <span>*</span></label>
-          <select id="wa_date" required>
-            <option value="">Select date...</option>
-            <option value="Today">Today</option>
-            <option value="Tomorrow">Tomorrow</option>
-            <option value="This week">This week</option>
-            <option value="Next week">Next week</option>
-            <option value="Weekend">Weekend</option>
-            <option value="Flexible">Flexible</option>
-          </select>
+          <input id="wa_date" type="date" required>
         </div>
 
         <div class="preference-wrap">
@@ -1635,7 +1638,16 @@ window.sendWA = function(event){
   var first = document.getElementById('wa_first').value.trim();
   var last = document.getElementById('wa_last').value.trim();
   var phone = document.getElementById('wa_phone').value.trim();
-  var date = document.getElementById('wa_date').value;
+  
+  var rawDate = document.getElementById('wa_date').value;
+  var date = rawDate;
+  if(rawDate){
+    var parts = rawDate.split('-');
+    if(parts.length === 3){
+      date = parts[2] + '/' + parts[1] + '/' + parts[0];
+    }
+  }
+
   var treatment = document.getElementById('wa_treatment').value;
   var masseuseEl = document.querySelector('input[name="masseuse"]:checked');
   var notes = document.getElementById('wa_notes').value.trim();
