@@ -92,18 +92,28 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .about-text-col{padding:3rem 4.5rem 3rem 5rem;display:flex;flex-direction:column;justify-content:center}
 .eyebrow{font-size:.65rem;font-weight:400;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
 .s-title{
-  font-family:"Myriad Pro",sans-serif;
-  font-size:clamp(2rem,4vw,3.2rem);
-  font-weight:400;
-  line-height:1.1;
-  color:#fff;
-  margin-bottom:1rem;
+  position:relative;
+  line-height:1;
+  margin-bottom:2rem;
 }
 
-.s-title i{
+.s-title .brush{
   font-family:"Tropical Brush",cursive;
-  font-style:normal;
-  color:var(--sand);
+  font-size:clamp(4rem,8vw,7rem);
+  color:#f5f1e8;
+  line-height:.9;
+}
+
+.s-title .clean{
+  font-family:"Myriad Pro",sans-serif;
+  font-size:clamp(1.3rem,2vw,2rem);
+  color:#fff;
+
+  position:absolute;
+  left:.4rem;
+  bottom:.2rem;
+
+  letter-spacing:.02em;
 }
 .gold-rule{width:48px;height:1px;background:var(--gold);margin:1.75rem 0}
 .s-body{font-size:.92rem;font-weight:300;line-height:1.95;color:rgba(240,234,224,.6)}
@@ -711,7 +721,10 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   <div style="max-width:1300px;margin:0 auto">
     <div class="rv">
       <p class="eyebrow">Curated Experiences</p>
-      <h2 class="s-title">Treatment <i>Packages</i></h2>
+      <div class="s-title">
+  <div class="brush">Traditional</div>
+  <div class="clean">Treatments</div>
+</div>
       <div class="gold-rule"></div>
       <p class="s-body">Combine treatments for a complete wellness journey. All prices excl. 10% BTW.</p>
     </div>
