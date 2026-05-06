@@ -6,11 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mokisa Wellness — Traditional Maroon Wellness Centre</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+
 <style>
+ @font-face {
+  font-family: 'Myriad Pro';
+  src: url('fonts/MYRIADPRO-REGULAR.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('fonts/MYRIADPRO-CONDIT.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#0f0905;color:#F0EAE0;font-family:"DM Sans",sans-serif;font-weight:300;overflow-x:hidden}
+body{background:#0f0905;color:#F0EAE0;font-family:"Myriad Pro",sans-serif;font-weight:300;overflow-x:hidden}
 :root{
   --cream:#F5EDD8;
   --sand:#C9AA7C;
@@ -33,7 +45,7 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .nav-ul{list-style:none;display:flex;gap:2.5rem}
 .nav-ul a{color:rgba(255,255,255,.6);font-size:.72rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:color .3s}
 .nav-ul a:hover{color:var(--gold)}
-.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.55rem 1.6rem;font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.55rem 1.6rem;font-family:"Myriad Pro",sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none}
 .nav-cta:hover{background:var(--gold);color:var(--bark)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .burger span{width:22px;height:1px;background:#fff;display:block}
@@ -55,9 +67,9 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .hero-h1 i{font-style:italic;color:var(--sand);display:block}
 .hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.55);letter-spacing:.05em;margin-bottom:2.75rem;font-style:italic}
 .hero-btns{display:flex;gap:1.25rem;flex-wrap:wrap}
-.btn-fill{background:var(--gold);color:var(--bark);padding:.9rem 2.5rem;font-family:"DM Sans",sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:none;cursor:pointer;transition:all .35s;text-decoration:none;display:inline-block}
+.btn-fill{background:var(--gold);color:var(--bark);padding:.9rem 2.5rem;font-family:"Myriad Pro",sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:none;cursor:pointer;transition:all .35s;text-decoration:none;display:inline-block}
 .btn-fill:hover{background:var(--gold2);transform:translateY(-2px)}
-.btn-line{background:transparent;color:rgba(255,255,255,.75);padding:.9rem 2.5rem;font-family:"DM Sans",sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:all .35s;text-decoration:none;display:inline-block}
+.btn-line{background:transparent;color:rgba(255,255,255,.75);padding:.9rem 2.5rem;font-family:"Myriad Pro",sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:all .35s;text-decoration:none;display:inline-block}
 .btn-line:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 .hero-scroll{position:absolute;right:3.5rem;bottom:3rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;color:rgba(255,255,255,.3);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase}
 .scroll-tick{width:1px;height:50px;background:linear-gradient(to bottom,rgba(184,147,90,.7),transparent);animation:tick 2.2s ease-in-out infinite}
@@ -111,7 +123,7 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .t-name{font-family:"Playfair Display",serif;font-size:1.55rem;font-weight:400;color:#fff;margin-bottom:.85rem}
 .t-desc{font-size:.83rem;font-weight:300;line-height:1.85;color:rgba(240,234,224,.5);margin-bottom:1.5rem}
 .t-price{font-family:"Playfair Display",serif;font-size:1.35rem;font-weight:400;color:var(--gold)}
-.t-price small{font-family:"DM Sans",sans-serif;font-size:.62rem;font-weight:300;color:rgba(240,234,224,.3);letter-spacing:.08em;margin-left:.3rem}
+.t-price small{font-family:"Myriad Pro",sans-serif;font-size:.62rem;font-weight:300;color:rgba(240,234,224,.3);letter-spacing:.08em;margin-left:.3rem}
 
 /* EDITORIAL BREAK */
 .editorial{position:relative;height:520px;overflow:hidden;display:flex;align-items:center}
@@ -127,7 +139,7 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .pkg-grid{display:grid;grid-template-columns:300px 1fr;gap:3.5rem;max-width:1300px;margin:3.5rem auto 0;align-items:start}
 .pkg-sidebar{position:sticky;top:100px}
 .pkg-tabs{display:flex;flex-direction:column;border:1px solid var(--border)}
-.pkg-btn{background:none;border:none;border-bottom:1px solid var(--border);text-align:left;padding:1.1rem 1.5rem;font-family:"DM Sans",sans-serif;font-size:.76rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,224,.4);cursor:pointer;transition:all .3s;display:flex;justify-content:space-between;align-items:center}
+.pkg-btn{background:none;border:none;border-bottom:1px solid var(--border);text-align:left;padding:1.1rem 1.5rem;font-family:"Myriad Pro",sans-serif;font-size:.76rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,224,.4);cursor:pointer;transition:all .3s;display:flex;justify-content:space-between;align-items:center}
 .pkg-btn:last-child{border-bottom:none}
 .pkg-btn .arrow{opacity:0;transition:opacity .3s;color:var(--gold)}
 .pkg-btn:hover,.pkg-btn.on{color:var(--gold);background:rgba(184,147,90,.06)}
@@ -148,7 +160,7 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .pkg-row-price{font-family:"Playfair Display",serif;font-size:1.3rem;color:var(--gold);flex-shrink:0}
 .pkg-footer{margin-top:1.5rem;padding:1rem 1.4rem;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .pkg-note{font-size:.68rem;font-weight:300;color:rgba(240,234,224,.3);letter-spacing:.06em}
-.btn-sm{background:var(--gold);color:var(--bark);padding:.65rem 1.75rem;font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;white-space:nowrap}
+.btn-sm{background:var(--gold);color:var(--bark);padding:.65rem 1.75rem;font-family:"Myriad Pro",sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;white-space:nowrap}
 .btn-sm:hover{background:var(--gold2)}
 
 /* BROCHURE IMAGES */
@@ -175,12 +187,12 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .f-full{grid-column:1/-1}
 .f-grp{display:flex;flex-direction:column;gap:.4rem}
 .f-grp label{font-size:.62rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.4)}
-.f-grp input,.f-grp select,.f-grp textarea{background:rgba(255,255,255,.04);border:1px solid rgba(184,147,90,.2);border-bottom:1px solid rgba(184,147,90,.4);padding:.8rem 1rem;font-family:"DM Sans",sans-serif;font-size:.88rem;font-weight:300;color:#fff;outline:none;transition:all .3s;width:100%;-webkit-appearance:none}
+.f-grp input,.f-grp select,.f-grp textarea{background:rgba(255,255,255,.04);border:1px solid rgba(184,147,90,.2);border-bottom:1px solid rgba(184,147,90,.4);padding:.8rem 1rem;font-family:"Myriad Pro",sans-serif;font-size:.88rem;font-weight:300;color:#fff;outline:none;transition:all .3s;width:100%;-webkit-appearance:none}
 .f-grp input::placeholder{color:rgba(255,255,255,.2)}
 .f-grp input:focus,.f-grp select:focus,.f-grp textarea:focus{border-color:var(--gold);background:rgba(184,147,90,.06)}
 .f-grp select option{background:#1a1008;color:#fff}
 .f-grp textarea{height:90px;resize:none}
-.f-submit{width:100%;background:var(--gold);color:var(--bark);padding:1.1rem;font-family:"DM Sans",sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;border:none;cursor:pointer;margin-top:1.25rem;transition:all .3s}
+.f-submit{width:100%;background:var(--gold);color:var(--bark);padding:1.1rem;font-family:"Myriad Pro",sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;border:none;cursor:pointer;margin-top:1.25rem;transition:all .3s}
 .f-submit:hover{background:var(--gold2)}
 
 /* FOOTER */
@@ -657,21 +669,21 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem">
           <div style="display:flex;flex-direction:column;gap:.35rem">
             <label style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)">First Name <span style="color:#e74c3c">*</span></label>
-            <input id="wfn" type="text" required placeholder="First name" style="background:rgba(255,255,255,.04);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;background:rgba(255,255,255,.03)">
+            <input id="wfn" type="text" required placeholder="First name" style="background:rgba(255,255,255,.04);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'Myriad Pro',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;background:rgba(255,255,255,.03)">
           </div>
           <div style="display:flex;flex-direction:column;gap:.35rem">
             <label style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)">Last Name <span style="color:#e74c3c">*</span></label>
-            <input id="wln" type="text" required placeholder="Last name" style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%">
+            <input id="wln" type="text" required placeholder="Last name" style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'Myriad Pro',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%">
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem">
           <div style="display:flex;flex-direction:column;gap:.35rem">
             <label style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)">Your WhatsApp Number <span style="color:#e74c3c">*</span></label>
-            <input id="wwa" type="tel" required placeholder="+597 ..." style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%">
+            <input id="wwa" type="tel" required placeholder="+597 ..." style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'Myriad Pro',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%">
           </div>
           <div style="display:flex;flex-direction:column;gap:.35rem">
             <label style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)">Preferred Date <span style="color:#e74c3c">*</span></label>
-            <input id="wdt" type="date" required style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;color-scheme:dark">
+            <input id="wdt" type="date" required style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'Myriad Pro',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;color-scheme:dark">
           </div>
         </div>
         <div style="margin-bottom:.9rem">
@@ -694,7 +706,7 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
         </div>
         <div style="margin-bottom:.9rem;display:flex;flex-direction:column;gap:.35rem">
           <label style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)">Treatment / Package <span style="color:#e74c3c">*</span></label>
-          <select id="wtr" required style="background:#141008;border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;-webkit-appearance:none">
+          <select id="wtr" required style="background:#141008;border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'Myriad Pro',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;-webkit-appearance:none">
             <option value="">Select a treatment...</option>
             <optgroup label="Individual Treatments">
               <option>Sweti — SRD 600</option><option>Dampu — SRD 700</option>
@@ -717,9 +729,9 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
         </div>
         <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:.25rem">
           <label style="font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,234,224,.35)">Notes / Health Conditions</label>
-          <textarea id="wnt" placeholder="Any health conditions or special requests..." style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;height:72px;resize:none"></textarea>
+          <textarea id="wnt" placeholder="Any health conditions or special requests..." style="background:rgba(255,255,255,.03);border:none;border-bottom:1px solid rgba(184,147,90,.35);padding:.7rem .9rem;font-family:'Myriad Pro',sans-serif;font-size:.86rem;font-weight:300;color:#fff;width:100%;height:72px;resize:none"></textarea>
         </div>
-        <button type="submit" style="width:100%;background:#25D366;color:#fff;padding:1rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;margin-top:1.1rem;display:flex;align-items:center;justify-content:center;gap:.7rem" onmouseover="this.style.background='#1db954'" onmouseout="this.style.background='#25D366'">
+        <button type="submit" style="width:100%;background:#25D366;color:#fff;padding:1rem;font-family:'Myriad Pro',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;margin-top:1.1rem;display:flex;align-items:center;justify-content:center;gap:.7rem" onmouseover="this.style.background='#1db954'" onmouseout="this.style.background='#25D366'">
           <span style="font-size:1.05rem">📲</span> Send via WhatsApp
         </button>
         <p style="font-size:.65rem;color:rgba(240,234,224,.2);text-align:center;margin-top:.65rem;line-height:1.65">Your request goes directly to Mokisa's WhatsApp. We'll confirm within 24 hours.</p>
