@@ -1342,5 +1342,55 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  const root = document.querySelector('#packages');
+  if(!root) return;
+
+  const tabs = Array.from(root.querySelectorAll('.pkg-tabs button, .pkg-tab'));
+  const panels = Array.from(root.querySelectorAll('.pkg-panel'));
+
+  if(tabs.length < 4 || panels.length < 4) return;
+
+  // Explicit mapping fix
+  const map = {
+    0: 0, // Therapeutic
+    1: 1, // Podo
+    2: 3, // Kids
+    3: 2  // Signature
+  };
+
+  function activate(tabIndex){
+
+    tabs.forEach(t => t.classList.remove('on','active'));
+
+    panels.forEach(p => {
+      p.classList.remove('on','active');
+      p.style.display = 'none';
+    });
+
+    tabs[tabIndex].classList.add('on');
+
+    const panelIndex = map[tabIndex];
+
+    if(panels[panelIndex]){
+      panels[panelIndex].classList.add('on');
+      panels[panelIndex].style.display = 'block';
+    }
+  }
+
+  tabs.forEach((tab,index)=>{
+    tab.onclick = function(e){
+      e.preventDefault();
+      activate(index);
+    };
+  });
+
+  activate(0);
+});
+</script>
+
 </body>
 </html>
