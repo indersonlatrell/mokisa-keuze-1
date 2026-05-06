@@ -113,16 +113,19 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
   font-family:"Myriad Pro",cursive;
   font-weight:400;
   line-height:1.1;
-  display:flex;
-  align-items:flex-end;
+  display: flex;
+  align-items: baseline; /* aligns text naturally */
   gap: 0.4rem;
-  flex-wrap: nowrap;   
-  white-space: nowrap; 
+  flex-wrap: nowrap;
+  white-space: nowrap;
+} 
  }
  .clean{
   font-family:"Tropical Brush",cursive;
-  font-size:clamp(4rem,6vw,8rem);
+  
   color: var(--sand);
+  position: relative;
+  top: 0.15em;
  }
 .gold-rule{width:48px;height:1px;background:var(--gold);margin:1.75rem 0}
 .s-body{font-family:"Myriad Pro";font-size:.92rem;font-weight:300;line-height:1.95;color:rgba(240,234,224,.6)}
