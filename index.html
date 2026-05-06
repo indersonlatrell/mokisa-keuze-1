@@ -558,39 +558,34 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
 }
 
 
-/* ===== Package preview + equal tab divider fix ===== */
-.pkg-tabs{
-  align-self:start;
-}
 
+/* ===== Package preview + equal divider fix ===== */
 .pkg-tabs button,
 .pkg-tab{
-  width:130px;
-  max-width:130px;
-  min-width:130px;
-  text-align:left;
-  border-bottom:1px solid rgba(184,147,90,.26)!important;
+  position:relative;
 }
 
 .pkg-tabs button::after,
 .pkg-tab::after{
-  width:100%!important;
-  left:0!important;
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-1px;
+  width:130px;
+  height:1px;
+  background:rgba(184,147,90,.26);
 }
 
-.pkg-tabs button.on,
-.pkg-tabs button.active,
-.pkg-tab.on,
-.pkg-tab.active{
-  border-bottom-color:rgba(184,147,90,.55)!important;
+.pkg-tabs button.on::after,
+.pkg-tabs button.active::after,
+.pkg-tab.on::after,
+.pkg-tab.active::after{
+  background:rgba(184,147,90,.6);
 }
 
-/* Preview should show beside tabs instead of leaving a blank area */
-.pkg-panel,
-.pkg-preview,
-.package-preview{
-  opacity:1!important;
-  visibility:visible!important;
+/* Show first package preview by default */
+.pkg-panel{
+  display:none;
 }
 
 .pkg-panel.on,
@@ -598,20 +593,6 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   display:block!important;
 }
 
-.pkg-panel:not(.on):not(.active){
-  display:none;
-}
-
-/* If a panel has no image, make its text preview feel intentional */
-.pkg-panel{
-  border:1px solid rgba(184,147,90,.18);
-  background:rgba(26,16,8,.44);
-  padding:2rem;
-}
-
-.pkg-grid{
-  align-items:start;
-}
 
 </style>
 </head>
