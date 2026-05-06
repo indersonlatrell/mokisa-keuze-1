@@ -634,8 +634,26 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   display:block!important;
 }
 
-#packages .pkg-panel:first-of-type{
-  display:block;
+
+
+
+/* ===== FIX: Package tabs replace instead of stacking ===== */
+#packages .pkg-panel{
+  display:none!important;
+}
+
+#packages .pkg-panel.on,
+#packages .pkg-panel.active{
+  display:block!important;
+}
+
+#packages .pkg-panel:not(.on):not(.active){
+  display:none!important;
+}
+
+#packages .pkg-tabs button,
+#packages .pkg-tab{
+  cursor:pointer;
 }
 
 </style>
@@ -1127,6 +1145,75 @@ Sent via mokisawellness`;
   <span>📲</span>
   Book via WhatsApp
 </a>
+
+
+<script>
+/* Package tabs: show one panel at a time */
+(function(){
+  function initPackageTabs(){
+    const root = document.querySelector('#packages');
+    if(!root) return;
+
+    const tabs = Array.from(root.querySelectorAll('.pkg-tabs button, .pkg-tab'));
+    const panels = Array.from(root.querySelectorAll('.pkg-panel'));
+
+    if(!tabs.length || !panels.length) return;
+
+    function targetFromTab(tab, index){
+      const raw =
+        tab.getAttribute('data-target') ||
+        tab.getAttribute('data-tab') ||
+        tab.getAttribute('aria-controls') ||
+        tab.getAttribute('href');
+
+      if(raw){
+        const id = raw.replace('#','');
+        const found = root.querySelector('#' + CSS.escape(id));
+        if(found && found.classList.contains('pkg-panel')) return found;
+      }
+
+      return panels[index] || panels[0];
+    }
+
+    function activate(index){
+      tabs.forEach(t => t.classList.remove('on','active'));
+      panels.forEach(p => {
+        p.classList.remove('on','active');
+        p.style.display = 'none';
+      });
+
+      const tab = tabs[index] || tabs[0];
+      const panel = targetFromTab(tab, index);
+
+      if(tab) tab.classList.add('on');
+      if(panel){
+        panel.classList.add('on');
+        panel.style.display = 'block';
+      }
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', function(e){
+        e.preventDefault();
+        activate(index);
+      });
+    });
+
+    const activeIndex = Math.max(
+      tabs.findIndex(t => t.classList.contains('on') || t.classList.contains('active')),
+      panels.findIndex(p => p.classList.contains('on') || p.classList.contains('active'))
+    );
+
+    activate(activeIndex >= 0 ? activeIndex : 0);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initPackageTabs);
+  } else {
+    initPackageTabs();
+  }
+})();
+</script>
 
 </body>
 </html>
