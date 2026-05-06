@@ -113,7 +113,11 @@ nav.stuck{background:rgba(15,9,5,0.96);backdrop-filter:blur(16px);padding:1rem 3
 .treatments-hd{text-align:center;max-width:620px;margin:0 auto 5rem;display:flex;flex-direction:column;align-items:center}
 .treatments-hd .eyebrow,.treatments-hd .gold-rule{align-self:center}
 .treatments-hd .s-body{text-align:center}
-.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,147,90,.12);max-width:1300px;margin:0 auto}
+.t-rows{display:flex;flex-direction:column;gap:1px;background:rgba(184,147,90,.1);max-width:1300px;margin:0 auto}
+.t-row{background:var(--card-bg);padding:2.75rem 2.25rem;position:relative;overflow:hidden;transition:background .4s}
+.t-row::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transition:transform .45s ease;transform-origin:left}
+.t-row:hover{background:#1f130a}
+.t-row:hover::after{transform:scaleX(1)}
 .t-card{background:var(--card-bg);padding:2.75rem 2.25rem;position:relative;overflow:hidden;transition:background .4s}
 .t-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transition:transform .45s ease;transform-origin:left}
 .t-card:hover{background:#1f130a}
@@ -475,91 +479,56 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   </div>
 <div class="t-rows">
 
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Detox</div>
-        <div class="t-name">Sweti</div>
-        <p class="t-desc">Sweating and steaming with natural herbs. Detoxifies through perspiration, opens pores, stimulates circulation and relieves daily stress and fatigue.</p>
-        <div class="t-price">SRD 600 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Herbal Wrap</div>
-        <div class="t-name">Dampu</div>
-        <p class="t-desc">Body wrapped in a cloth soaked in hot herbal extract. Removes dead skin cells, opens body pores, promotes complete rest and healthy blood-oxygen circulation.</p>
-        <div class="t-price">SRD 700 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Therapeutic</div>
-        <div class="t-name">Ali Skin</div>
-        <p class="t-desc">Therapeutic massage using traditional Maroon techniques. Targets chronic neck, shoulder and back pain, cramped muscles and pinched nerves. A combination of deep tissue, pressure point and relax techniques.</p>
-        <div class="t-price">SRD 800 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Massage</div>
-        <div class="t-name">Relax Massage</div>
-        <p class="t-desc">A soothing massage with beautifully scented oils to bring the body to rest and restore inner balance. Melts away tension and stress.</p>
-        <div class="t-price">SRD 650 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Deep Work</div>
-        <div class="t-name">Deep Tissue</div>
-        <p class="t-desc">Massage for improved circulation, resolving muscle blockages, stress relief and reducing body pain. Reaches deep muscle layers for lasting relief.</p>
-        <div class="t-price">SRD 700 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Body Scrub</div>
-        <div class="t-name">Podo Siri</div>
-        <p class="t-desc">Full body scrub using açaí extract to remove dead skin cells. Improves detoxification and gives skin a radiant, healthy glow.</p>
-        <div class="t-price">SRD 750 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
-    <div class="t-row rv">
-      <div class="t-row-text">
-        <div class="t-pill">Women's Ritual</div>
-        <div class="t-name">Bakapasi — Vaginale Stoom</div>
-        <p class="t-desc">A traditional herbal steam bath for vaginal cleansing. Cooked traditional herbs produce healing steam while the woman sits on a night pot covered with a pangi. Helps remove remaining blood after childbirth or menstruation and supports uterine contraction.</p>
-        <div class="t-price">SRD 600 <small>excl. btw</small></div>
-      </div>
-      <div class="t-row-img">
-        <div class="t-row-img-placeholder"><span>Add image here</span></div>
-      </div>
-    </div>
-
+  <div class="t-row rv">
+    <div class="t-pill">Detox</div>
+    <div class="t-name">Sweti</div>
+    <p class="t-desc">Sweating and steaming with natural herbs. Detoxifies through perspiration, opens pores, stimulates circulation and relieves daily stress and fatigue.</p>
+    <div class="t-price">SRD 600 <small>excl. btw</small></div>
   </div>
+
+  <div class="t-row rv">
+    <div class="t-pill">Herbal Wrap</div>
+    <div class="t-name">Dampu</div>
+    <p class="t-desc">Body wrapped in a cloth soaked in hot herbal extract. Removes dead skin cells, opens body pores, promotes complete rest and healthy blood-oxygen circulation.</p>
+    <div class="t-price">SRD 700 <small>excl. btw</small></div>
+  </div>
+
+  <div class="t-row rv">
+    <div class="t-pill">Therapeutic</div>
+    <div class="t-name">Ali Skin</div>
+    <p class="t-desc">Therapeutic massage using traditional Maroon techniques. Targets chronic neck, shoulder and back pain, cramped muscles and pinched nerves.</p>
+    <div class="t-price">SRD 800 <small>excl. btw</small></div>
+  </div>
+
+  <div class="t-row rv">
+    <div class="t-pill">Massage</div>
+    <div class="t-name">Relax Massage</div>
+    <p class="t-desc">A soothing massage with beautifully scented oils to bring the body to rest and restore inner balance. Melts away tension and stress.</p>
+    <div class="t-price">SRD 650 <small>excl. btw</small></div>
+  </div>
+
+  <div class="t-row rv">
+    <div class="t-pill">Deep Work</div>
+    <div class="t-name">Deep Tissue</div>
+    <p class="t-desc">Massage for improved circulation, resolving muscle blockages, stress relief and reducing body pain. Reaches deep muscle layers for lasting relief.</p>
+    <div class="t-price">SRD 700 <small>excl. btw</small></div>
+  </div>
+
+  <div class="t-row rv">
+    <div class="t-pill">Body Scrub</div>
+    <div class="t-name">Podo Siri</div>
+    <p class="t-desc">Full body scrub using açaí extract to remove dead skin cells. Improves detoxification and gives skin a radiant, healthy glow.</p>
+    <div class="t-price">SRD 750 <small>excl. btw</small></div>
+  </div>
+
+  <div class="t-row rv">
+    <div class="t-pill">Women's Ritual</div>
+    <div class="t-name">Bakapasi — Vaginale Stoom</div>
+    <p class="t-desc">A traditional herbal steam bath for vaginal cleansing. Cooked traditional herbs produce healing steam while the woman sits on a night pot covered with a pangi. Helps remove remaining blood after childbirth or menstruation and supports uterine contraction.</p>
+    <div class="t-price">SRD 600 <small>excl. btw</small></div>
+  </div>
+
+</div>
 </section>
 
 <!-- EDITORIAL BREAK -->
