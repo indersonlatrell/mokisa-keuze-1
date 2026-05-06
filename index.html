@@ -594,6 +594,50 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
 }
 
 
+
+/* ===== Restored Packages Section Fix ===== */
+#packages{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+
+#packages .pkg-tabs{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+
+#packages .pkg-tabs button,
+#packages .pkg-tab{
+  width:130px;
+  max-width:130px;
+  min-width:130px;
+  text-align:left;
+  border-bottom:1px solid rgba(184,147,90,.26)!important;
+}
+
+#packages .pkg-tabs button.on,
+#packages .pkg-tabs button.active,
+#packages .pkg-tab.on,
+#packages .pkg-tab.active{
+  color:var(--gold);
+  border-bottom-color:rgba(184,147,90,.65)!important;
+}
+
+#packages .pkg-panel{
+  display:none;
+}
+
+#packages .pkg-panel.on,
+#packages .pkg-panel.active{
+  display:block!important;
+}
+
+#packages .pkg-panel:first-of-type{
+  display:block;
+}
+
 </style>
 </head>
 <body>
@@ -851,6 +895,97 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
 
 </div>
 </section>
+<div class="gold-divider"></div>
+<section id="packages">
+  <div style="max-width:1300px;margin:0 auto">
+    <div class="rv">
+      <p class="eyebrow">Curated Experiences</p>
+      <div class="s-title">
+  <div class="brush">Combined</div>
+  <div class="pkg-pkg">Treatments</div>
+</div>
+      <div class="gold-rule"></div>
+      <p class="s-body">Combine treatments for a complete wellness journey. All prices excl. 10% BTW.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg-sidebar rv">
+        <div class="pkg-tabs">
+          <button class="pkg-btn on" onclick="showPkg(event,'therapeutic')">Therapeutic <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'podo')">Podo <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'kids')">Kids <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'signature')">Signature <span class="arrow">→</span></button>
+          
+        </div>
+      </div>
+      <div class="rv d1">
+        <!-- Traditional -->
+       
+      
+        <!-- Therapeutic -->
+        <div class="pkg-panel on" id="pp-therapeutic">
+          <div class="pkg-head">
+            <div class="s-title">Therapeutic <i class="pkg-pkg">Packages</i></div>
+            <p class="pkg-desc">Targeted combinations for muscle pain, joint issues, specific body parts and chronic complaints.</p>
+          </div>
+          <div class="pkg-rows">
+            <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 1,400</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Ali Skin</div><div class="pkg-row-price">SRD 1,350</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Sweti, Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 1,900</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podo, Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 2,100</div></div>
+          </div>
+          <div class="pkg-footer"><p class="pkg-note">*excl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
+        </div>
+        <!-- Podo -->
+        <div class="pkg-panel" id="pp-podo">
+          <div class="pkg-head">
+            <div class="s-title">Podo <i class="pkg-pkg">Treatments</i></div>
+            <p class="pkg-desc">Body scrub with our signature açaí extract formula, combined with our most popular treatments.</p>
+          </div>
+          <div class="pkg-rows">
+            <div class="pkg-row"><div class="pkg-row-name">Full Body Scrub</div><div class="pkg-row-price">SRD 750</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Sweti</div><div class="pkg-row-price">SRD 1,250</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Dampu</div><div class="pkg-row-price">SRD 1,400</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Relax</div><div class="pkg-row-price">SRD 1,350</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Deep Tissue</div><div class="pkg-row-price">SRD 1,400</div></div>
+          </div>
+          <div class="pkg-footer"><p class="pkg-note">*excl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
+        </div>
+        <!-- Signature -->
+        <div class="pkg-panel" id="pp-signature">
+          <div class="pkg-head">
+            <div class="s-title">Signature <i class:"pkg-pkg">Packages</i></div>
+            <p class="pkg-desc">The ultimate expression of Traditional Maroon wellness — our most celebrated curated experiences.</p>
+          </div>
+          <div class="pkg-rows">
+            <div class="pkg-row feat">
+              <div><div class="pkg-row-name">Package+</div><div class="pkg-row-sub">Sweti · Dampu · Full Body Podoscrub · Relax Massage · The ultimate Maroon experience</div></div>
+              <div class="pkg-row-price">SRD 2,500</div>
+            </div>
+            <div class="pkg-row feat">
+              <div><div class="pkg-row-name">Uma Package</div><div class="pkg-row-sub">Sweti · Dampu · Bakapasi · Full Body Podoscrub · Relax Massage · Women's complete renewal ritual</div></div>
+              <div class="pkg-row-price">SRD 2,750</div>
+            </div>
+          </div>
+          <div class="pkg-footer"><p class="pkg-note">*excl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
+        </div>
+        <!-- Kids -->
+        <div class="pkg-panel" id="pp-kids">
+          <div class="pkg-head">
+            <div class="s-title">Kids <i class="pkg-pkg">Treatments</i></div>
+            <p class="pkg-desc">Gentle, caring treatments supporting healthy growth, immune strength, relaxation and radiant skin for the little ones.</p>
+          </div>
+          <div class="pkg-rows">
+            <div class="pkg-row"><div><div class="pkg-row-name">Pikin' Nengee</div><div class="pkg-row-sub">Kids massage (3–12 yrs) · Relieves stress, strengthens immune system, promotes good sleep</div></div><div class="pkg-row-price">SRD 550</div></div>
+            <div class="pkg-row"><div><div class="pkg-row-name">Nyoni</div><div class="pkg-row-sub">Baby massage (0–3 yrs) · Supports healthy physical growth, relieves colic and poor sleep</div></div><div class="pkg-row-price">SRD 450</div></div>
+            <div class="pkg-row"><div><div class="pkg-row-name">Pikin' Package</div><div class="pkg-row-sub">Podoscrub &amp; Relax Massage · Fresh, soft and radiant skin for kids</div></div><div class="pkg-row-price">SRD 1,000</div></div>
+          </div>
+          <div class="pkg-footer"><p class="pkg-note">*excl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <div class="gold-divider"></div>
 <!-- EDITORIAL BREAK -->
