@@ -656,6 +656,78 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   cursor:pointer;
 }
 
+
+/* ===== FIX: WhatsApp modal/button response ===== */
+#bmodal,
+.bmodal{
+  position:fixed;
+  inset:0;
+  z-index:1200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:1.5rem;
+  background:rgba(5,3,2,.84);
+}
+
+#bmodal.on,
+.bmodal.on{
+  display:flex!important;
+}
+
+#bmodal .bmodal-card,
+.bmodal .bmodal-card{
+  width:min(520px,100%);
+  background:#140c06;
+  border:1px solid rgba(184,147,90,.35);
+  padding:2rem;
+  position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+
+.bmodal-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  background:none;
+  border:0;
+  color:var(--gold);
+  font-size:1.8rem;
+  cursor:pointer;
+}
+
+#bmodal input,
+#bmodal textarea,
+.bmodal input,
+.bmodal textarea{
+  width:100%;
+  margin-bottom:.85rem;
+  background:#0f0905;
+  border:1px solid rgba(184,147,90,.25);
+  color:#F5EDD8;
+  padding:.9rem;
+  font-family:"Myriad Pro",sans-serif;
+}
+
+#bmodal textarea,
+.bmodal textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+#bmodal button[type="submit"],
+.bmodal button[type="submit"]{
+  width:100%;
+  background:var(--gold);
+  border:1px solid var(--gold);
+  color:#2A1A0A;
+  padding:.9rem 1rem;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-family:"Myriad Pro",sans-serif;
+  cursor:pointer;
+}
+
 </style>
 </head>
 <body>
@@ -1141,10 +1213,7 @@ Sent via mokisawellness`;
 
 </script>
 
-<a class="wa-floating-book" href="#" onclick="event.preventDefault();openBM();">
-  <span>📲</span>
-  Book via WhatsApp
-</a>
+
 
 
 <script>
@@ -1213,6 +1282,93 @@ Sent via mokisawellness`;
     initPackageTabs();
   }
 })();
+</script>
+
+
+<a class="wa-floating-book" href="https://api.whatsapp.com/send?phone=5978626245" onclick="event.preventDefault();openBM();return false;">
+  <span>📲</span>
+  Book via WhatsApp
+</a>
+
+
+<div class="bmodal" id="bmodal">
+  <div class="bmodal-card">
+    <button class="bmodal-close" type="button" onclick="closeBM()">×</button>
+    <p class="eyebrow">WhatsApp Booking</p>
+    <h3>Request Your Date</h3>
+    <form id="waform" onsubmit="sendWA(event)">
+      <input id="wa_name" name="name" type="text" placeholder="Your name" required>
+      <input id="wa_phone" name="phone" type="tel" placeholder="Your WhatsApp number">
+      <input id="wa_treatment" name="treatment" type="text" placeholder="Treatment or package">
+      <input id="wa_date" name="date" type="text" placeholder="Preferred date">
+      <textarea id="wa_notes" name="notes" placeholder="Notes"></textarea>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+/* WhatsApp booking: robust modal + send */
+window.openBM = function(){
+  var modal = document.getElementById('bmodal');
+  if(modal){
+    modal.classList.add('on');
+    modal.style.display = 'flex';
+  } else {
+    window.open('https://api.whatsapp.com/send?phone=5978626245&text=' + encodeURIComponent('Hello Mokisa, I would like to request a booking.'), '_blank');
+  }
+};
+
+window.closeBM = function(){
+  var modal = document.getElementById('bmodal');
+  if(modal){
+    modal.classList.remove('on');
+    modal.style.display = 'none';
+  }
+};
+
+window.sendWA = function(event){
+  if(event) event.preventDefault();
+
+  var name = (document.getElementById('wa_name') || {}).value || '';
+  var phone = (document.getElementById('wa_phone') || {}).value || '';
+  var treatment = (document.getElementById('wa_treatment') || {}).value || '';
+  var date = (document.getElementById('wa_date') || {}).value || '';
+  var notes = (document.getElementById('wa_notes') || {}).value || '';
+
+  var msg =
+    'Hello Mokisa, I would like to request a booking.\n\n' +
+    'Name: ' + name + '\n' +
+    'WhatsApp: ' + phone + '\n' +
+    'Treatment / Package: ' + treatment + '\n' +
+    'Preferred date: ' + date + '\n' +
+    'Notes: ' + (notes || 'None');
+
+  window.open('https://api.whatsapp.com/send?phone=5978626245&text=' + encodeURIComponent(msg), '_blank');
+  closeBM();
+  return false;
+};
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.wa-floating-book, .nav-cta').forEach(function(el){
+    var text = (el.textContent || '').toLowerCase();
+    if(el.classList.contains('wa-floating-book') || text.indexOf('request date') !== -1 || text.indexOf('book') !== -1){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        openBM();
+        return false;
+      });
+    }
+  });
+
+  var modal = document.getElementById('bmodal');
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeBM();
+    });
+  }
+});
 </script>
 
 </body>
