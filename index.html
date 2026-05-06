@@ -728,6 +728,206 @@ footer{background:#070402;padding:5rem 3.5rem 2.5rem;border-top:1px solid var(--
   cursor:pointer;
 }
 
+
+/* ===== Premium WhatsApp Booking Form ===== */
+#bmodal{
+  position:fixed;
+  inset:0;
+  z-index:1600;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:1.25rem;
+  background:rgba(5,3,2,.86);
+  backdrop-filter:blur(10px);
+}
+
+#bmodal.on{
+  display:flex!important;
+}
+
+.booking-card{
+  width:min(760px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#2a1508;
+  border:1px solid rgba(184,147,90,.34);
+  box-shadow:0 35px 95px rgba(0,0,0,.62);
+  padding:2.2rem;
+  position:relative;
+}
+
+.booking-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(184,147,90,.35);
+  background:transparent;
+  color:var(--gold);
+  font-size:1.5rem;
+  cursor:pointer;
+}
+
+.booking-title{
+  font-size:2.4rem;
+  line-height:1;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:.9rem;
+}
+
+.booking-intro{
+  color:rgba(245,237,216,.55);
+  font-size:.95rem;
+  margin-bottom:1.7rem;
+}
+
+.booking-line{
+  height:1px;
+  background:rgba(184,147,90,.34);
+  margin:0 0 1.7rem;
+}
+
+.booking-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem 1.1rem;
+}
+
+.booking-field{
+  display:flex;
+  flex-direction:column;
+  gap:.48rem;
+}
+
+.booking-field.full{
+  grid-column:1 / -1;
+}
+
+.booking-field label,
+.preference-label{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:.66rem;
+}
+
+.booking-field label span,
+.preference-label span{
+  color:#ef6f42;
+}
+
+.booking-field input,
+.booking-field select,
+.booking-field textarea{
+  width:100%;
+  background:#351d0f;
+  border:1px solid rgba(184,147,90,.22);
+  border-bottom-color:rgba(184,147,90,.58);
+  color:#F5EDD8;
+  padding:1rem;
+  font-family:"Myriad Pro",sans-serif;
+  font-size:.95rem;
+  outline:none;
+}
+
+.booking-field input:focus,
+.booking-field select:focus,
+.booking-field textarea:focus{
+  border-color:rgba(212,169,106,.85);
+}
+
+.booking-field textarea{
+  min-height:105px;
+  resize:vertical;
+}
+
+.preference-wrap{
+  grid-column:1 / -1;
+  margin-top:.2rem;
+}
+
+.preference-options{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.75rem;
+  margin-top:.55rem;
+}
+
+.preference-options input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.preference-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.7rem;
+  min-height:82px;
+  border:1px solid rgba(184,147,90,.42);
+  background:rgba(26,16,8,.35);
+  color:rgba(245,237,216,.62);
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.68rem;
+  transition:all .25s ease;
+}
+
+.preference-icon{
+  color:var(--gold);
+  font-size:1.4rem;
+  line-height:1;
+}
+
+.preference-options input:checked + .preference-box{
+  background:rgba(184,147,90,.18);
+  border-color:var(--gold);
+  color:#F5EDD8;
+}
+
+.booking-submit{
+  width:100%;
+  margin-top:1.2rem;
+  border:0;
+  background:#25D366;
+  color:#fff;
+  padding:1rem 1.2rem;
+  font-family:"Myriad Pro",sans-serif;
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.booking-submit:hover{
+  background:#1db954;
+}
+
+@media(max-width:700px){
+  .booking-card{
+    padding:1.5rem;
+  }
+
+  .booking-grid{
+    grid-template-columns:1fr;
+  }
+
+  .preference-options{
+    grid-template-columns:1fr;
+  }
+
+  .booking-title{
+    font-size:1.9rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1219,91 +1419,13 @@ Sent via mokisawellness`;
 
 
 
-<a class="wa-floating-book" href="https://api.whatsapp.com/send?phone=5978626245" onclick="event.preventDefault();openBM();return false;">
-  <span>📲</span>
-  Book via WhatsApp
-</a>
 
 
-<div class="bmodal" id="bmodal">
-  <div class="bmodal-card">
-    <button class="bmodal-close" type="button" onclick="closeBM()">×</button>
-    <p class="eyebrow">WhatsApp Booking</p>
-    <h3>Request Your Date</h3>
-    <form id="waform" onsubmit="sendWA(event)">
-      <input id="wa_name" name="name" type="text" placeholder="Your name" required>
-      <input id="wa_phone" name="phone" type="tel" placeholder="Your WhatsApp number">
-      <input id="wa_treatment" name="treatment" type="text" placeholder="Treatment or package">
-      <input id="wa_date" name="date" type="text" placeholder="Preferred date">
-      <textarea id="wa_notes" name="notes" placeholder="Notes"></textarea>
-      <button type="submit">Send via WhatsApp</button>
-    </form>
-  </div>
-</div>
 
 
-<script>
-/* WhatsApp booking: robust modal + send */
-window.openBM = function(){
-  var modal = document.getElementById('bmodal');
-  if(modal){
-    modal.classList.add('on');
-    modal.style.display = 'flex';
-  } else {
-    window.open('https://api.whatsapp.com/send?phone=5978626245&text=' + encodeURIComponent('Hello Mokisa, I would like to request a booking.'), '_blank');
-  }
-};
 
-window.closeBM = function(){
-  var modal = document.getElementById('bmodal');
-  if(modal){
-    modal.classList.remove('on');
-    modal.style.display = 'none';
-  }
-};
 
-window.sendWA = function(event){
-  if(event) event.preventDefault();
 
-  var name = (document.getElementById('wa_name') || {}).value || '';
-  var phone = (document.getElementById('wa_phone') || {}).value || '';
-  var treatment = (document.getElementById('wa_treatment') || {}).value || '';
-  var date = (document.getElementById('wa_date') || {}).value || '';
-  var notes = (document.getElementById('wa_notes') || {}).value || '';
-
-  var msg =
-    'Hello Mokisa, I would like to request a booking.\n\n' +
-    'Name: ' + name + '\n' +
-    'WhatsApp: ' + phone + '\n' +
-    'Treatment / Package: ' + treatment + '\n' +
-    'Preferred date: ' + date + '\n' +
-    'Notes: ' + (notes || 'None');
-
-  window.open('https://api.whatsapp.com/send?phone=5978626245&text=' + encodeURIComponent(msg), '_blank');
-  closeBM();
-  return false;
-};
-
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('.wa-floating-book, .nav-cta').forEach(function(el){
-    var text = (el.textContent || '').toLowerCase();
-    if(el.classList.contains('wa-floating-book') || text.indexOf('request date') !== -1 || text.indexOf('book') !== -1){
-      el.addEventListener('click', function(e){
-        e.preventDefault();
-        openBM();
-        return false;
-      });
-    }
-  });
-
-  var modal = document.getElementById('bmodal');
-  if(modal){
-    modal.addEventListener('click', function(e){
-      if(e.target === modal) closeBM();
-    });
-  }
-});
-</script>
 
 
 <script>
@@ -1391,6 +1513,183 @@ document.addEventListener('DOMContentLoaded', function(){
   activate(0);
 });
 </script>
+
+
+<div id="bmodal" class="booking-modal">
+  <div class="booking-card">
+    <button class="booking-close" type="button" onclick="closeBM()">×</button>
+
+    <h2 class="booking-title">Request a Date</h2>
+    <p class="booking-intro">Fill in your details — your booking goes straight to our WhatsApp.</p>
+    <div class="booking-line"></div>
+
+    <form id="waform" onsubmit="sendWA(event)">
+      <div class="booking-grid">
+        <div class="booking-field">
+          <label for="wa_first">First Name <span>*</span></label>
+          <input id="wa_first" type="text" placeholder="First name" required>
+        </div>
+
+        <div class="booking-field">
+          <label for="wa_last">Last Name</label>
+          <input id="wa_last" type="text" placeholder="Last name">
+        </div>
+
+        <div class="booking-field">
+          <label for="wa_phone">Your WhatsApp <span>*</span></label>
+          <input id="wa_phone" type="tel" placeholder="+597 ..." required>
+        </div>
+
+        <div class="booking-field">
+          <label for="wa_date">Preferred Date <span>*</span></label>
+          <select id="wa_date" required>
+            <option value="">Select date...</option>
+            <option value="Today">Today</option>
+            <option value="Tomorrow">Tomorrow</option>
+            <option value="This week">This week</option>
+            <option value="Next week">Next week</option>
+            <option value="Weekend">Weekend</option>
+            <option value="Flexible">Flexible</option>
+          </select>
+        </div>
+
+        <div class="preference-wrap">
+          <p class="preference-label">Masseuse Preference <span>*</span></p>
+          <div class="preference-options">
+            <label>
+              <input type="radio" name="masseuse" value="Female" required>
+              <span class="preference-box"><span class="preference-icon">♀</span>Female</span>
+            </label>
+
+            <label>
+              <input type="radio" name="masseuse" value="Male" required>
+              <span class="preference-box"><span class="preference-icon">♂</span>Male</span>
+            </label>
+
+            <label>
+              <input type="radio" name="masseuse" value="No preference" required>
+              <span class="preference-box"><span class="preference-icon">◇</span>No Preference</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="booking-field full">
+          <label for="wa_treatment">Treatment / Package <span>*</span></label>
+          <select id="wa_treatment" required>
+            <option value="">Select...</option>
+            <optgroup label="Therapeutic Packages">
+              <option>Dampu &amp; Ai Skin</option>
+              <option>Sweti &amp; Ai Skin</option>
+              <option>Sweti, Dampu &amp; Ai Skin</option>
+              <option>Podo, Dampu &amp; Ai Skin</option>
+            </optgroup>
+            <optgroup label="Podo Packages">
+              <option>Podo Basic</option>
+              <option>Podo &amp; Relax</option>
+              <option>Podo &amp; Deep Tissue</option>
+            </optgroup>
+            <optgroup label="Kids Treatments">
+              <option>Kids Treatment</option>
+              <option>Kids Relax</option>
+            </optgroup>
+            <optgroup label="Signature Packages">
+              <option>Package+</option>
+              <option>Uma Package</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="booking-field full">
+          <label for="wa_notes">Notes / Health Conditions</label>
+          <textarea id="wa_notes" placeholder="Any health conditions or special requests..."></textarea>
+        </div>
+      </div>
+
+      <button class="booking-submit" type="submit">📲 Send via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+/* WhatsApp booking: premium form */
+window.openBM = function(){
+  var modal = document.getElementById('bmodal');
+  if(modal){
+    modal.classList.add('on');
+    modal.style.display = 'flex';
+  }
+};
+
+window.closeBM = function(){
+  var modal = document.getElementById('bmodal');
+  if(modal){
+    modal.classList.remove('on');
+    modal.style.display = 'none';
+  }
+};
+
+window.sendWA = function(event){
+  if(event) event.preventDefault();
+
+  var first = document.getElementById('wa_first').value.trim();
+  var last = document.getElementById('wa_last').value.trim();
+  var phone = document.getElementById('wa_phone').value.trim();
+  var date = document.getElementById('wa_date').value;
+  var treatment = document.getElementById('wa_treatment').value;
+  var masseuseEl = document.querySelector('input[name="masseuse"]:checked');
+  var notes = document.getElementById('wa_notes').value.trim();
+
+  if(!first || !phone || !date || !treatment || !masseuseEl){
+    alert('Please fill in all required fields.');
+    return false;
+  }
+
+  var fullName = (first + ' ' + last).trim();
+
+  var msg =
+    'Hello Mokisa, I would like to request a booking.\n\n' +
+    '*Name:* ' + fullName + '\n' +
+    '*WhatsApp:* ' + phone + '\n' +
+    '*Preferred date:* ' + date + '\n' +
+    '*Masseuse preference:* ' + masseuseEl.value + '\n' +
+    '*Treatment / Package:* ' + treatment + '\n' +
+    '*Notes / Health conditions:* ' + (notes || 'None') + '\n\n' +
+    'Sent via mokisawellness';
+
+  window.open('https://api.whatsapp.com/send?phone=5978626245&text=' + encodeURIComponent(msg), '_blank');
+  closeBM();
+  return false;
+};
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.wa-floating-book, .nav-cta, button').forEach(function(el){
+    var text = (el.textContent || '').toLowerCase();
+    if(el.classList.contains('wa-floating-book') || text.indexOf('request date') !== -1 || text.indexOf('book via whatsapp') !== -1){
+      el.addEventListener('click', function(e){
+        if(el.tagName.toLowerCase() !== 'button' || el.type !== 'submit'){
+          e.preventDefault();
+          openBM();
+          return false;
+        }
+      });
+    }
+  });
+
+  var modal = document.getElementById('bmodal');
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeBM();
+    });
+  }
+});
+</script>
+
+
+<a class="wa-floating-book" href="#" onclick="event.preventDefault();openBM();return false;">
+  <span>📲</span>
+  Book via WhatsApp
+</a>
 
 </body>
 </html>
