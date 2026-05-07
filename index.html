@@ -1483,6 +1483,17 @@ html, body{
 #packages .pkg-btn{cursor:pointer;}
 #packages .s-title i.pkg-pkg{font-style:normal;}
 
+
+/* ===== FIX: Package panels display correctly ===== */
+#packages .pkg-panel{
+  display:none;
+}
+
+#packages .pkg-panel.on,
+#packages .pkg-panel.active{
+  display:block;
+}
+
 </style>
 </head>
 <body>
@@ -1757,15 +1768,15 @@ html, body{
         <div class="pkg-tabs">
           <button class="pkg-btn on" onclick="showPkg(event,'therapeutic')">Therapeutic <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'podo')">Podo <span class="arrow">→</span></button>
-          <button class="pkg-btn" onclick="showPkg(event,'sweti')">Dampu <span class="arrow">→</span></button>
-          <button class="pkg-btn" onclick="showPkg(event,'dampu')">Sweti <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'sweti')">Sweti <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'dampu')">Dampu <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'kids')">Kids <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'signature')">Signature <span class="arrow">→</span></button>
         </div>
       </div>
 
       <div class="rv d1 vis">
-        <div class="pkg-panel on" id="pp-therapeutic">
+        <div class="active pkg-panel on" id="pp-therapeutic">
           <div class="pkg-head">
             <div class="s-title">Therapeutic <i class="pkg-pkg">Packages</i></div>
             <p class="pkg-desc">Combinaties van de traditionele behandelingen speciaal gericht op lichamelijke aandoeningen z.a. spierpijnen, pijnen op specifieke lichaamsdelen of chronische gewrichtspijnen.</p>
@@ -1918,17 +1929,31 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 function showPkg(e,id){
   if(e) e.preventDefault();
+
   const root = document.getElementById('packages');
-  if(!root) return;
+  if(!root) return false;
 
-  root.querySelectorAll('.pkg-btn').forEach(b=>b.classList.remove('on'));
-  root.querySelectorAll('.pkg-panel').forEach(p=>p.classList.remove('on'));
+  const target = root.querySelector('#pp-' + id);
+  if(!target){
+    console.warn('Package panel not found:', 'pp-' + id);
+    return false;
+  }
 
-  const btn = e && e.currentTarget ? e.currentTarget : root.querySelector(`.pkg-btn[onclick*="'${id}'"]`);
-  const panel = document.getElementById('pp-' + id);
+  root.querySelectorAll('.pkg-btn').forEach(btn => {
+    const isActive = btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + id + "'");
+    btn.classList.toggle('on', isActive);
+    btn.classList.toggle('active', isActive);
+  });
 
-  if(btn) btn.classList.add('on');
-  if(panel) panel.classList.add('on');
+  root.querySelectorAll('.pkg-panel').forEach(panel => {
+    panel.classList.remove('on','active');
+    panel.style.display = 'none';
+  });
+
+  target.classList.add('on','active');
+  target.style.display = 'block';
+
+  return false;
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -2013,93 +2038,6 @@ Sent via mokisawellness`;
 
 
 
-
-
-<script>
-/* FIXED Package Tabs */
-document.addEventListener('DOMContentLoaded', function(){
-
-  const root = document.querySelector('#packages');
-  if(!root) return;
-
-  const tabs = Array.from(root.querySelectorAll('.pkg-tabs button, .pkg-tab'));
-  const panels = Array.from(root.querySelectorAll('.pkg-panel'));
-
-  function activate(index){
-    tabs.forEach(t => t.classList.remove('on','active'));
-    panels.forEach(p => {
-      p.classList.remove('on','active');
-      p.style.display = 'none';
-    });
-
-    if(tabs[index]) tabs[index].classList.add('on');
-
-    if(panels[index]){
-      panels[index].classList.add('on');
-      panels[index].style.display = 'block';
-    }
-  }
-
-  tabs.forEach((tab,index)=>{
-    tab.onclick = function(e){
-      e.preventDefault();
-      activate(index);
-    };
-  });
-
-  activate(0);
-});
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-
-  const root = document.querySelector('#packages');
-  if(!root) return;
-
-  const tabs = Array.from(root.querySelectorAll('.pkg-tabs button, .pkg-tab'));
-  const panels = Array.from(root.querySelectorAll('.pkg-panel'));
-
-  if(tabs.length < 4 || panels.length < 4) return;
-
-  // Explicit mapping fix
-  const map = {
-    0: 0, // Therapeutic
-    1: 1, // Podo
-    2: 3, // Kids
-    3: 2  // Signature
-  };
-
-  function activate(tabIndex){
-
-    tabs.forEach(t => t.classList.remove('on','active'));
-
-    panels.forEach(p => {
-      p.classList.remove('on','active');
-      p.style.display = 'none';
-    });
-
-    tabs[tabIndex].classList.add('on');
-
-    const panelIndex = map[tabIndex];
-
-    if(panels[panelIndex]){
-      panels[panelIndex].classList.add('on');
-      panels[panelIndex].style.display = 'block';
-    }
-  }
-
-  tabs.forEach((tab,index)=>{
-    tab.onclick = function(e){
-      e.preventDefault();
-      activate(index);
-    };
-  });
-
-  activate(0);
-});
-</script>
 
 
 <div id="bmodal" class="booking-modal">
