@@ -1459,6 +1459,13 @@ html, body{
   overflow-x:hidden!important;
 }
 
+
+/* ===== FIX: Packages tabs display one matching section ===== */
+#packages .pkg-panel{display:none!important;}
+#packages .pkg-panel.on{display:block!important;}
+#packages .pkg-btn{cursor:pointer;}
+#packages .s-title i.pkg-pkg{font-style:normal;}
+
 </style>
 </head>
 <body>
@@ -1717,69 +1724,47 @@ html, body{
 </div>
 </section>
 <div class="gold-divider"></div>
-<section id="packages">
+<section id="packages" class="packages">
   <div style="max-width:1300px;margin:0 auto">
-    <div class="rv">
-      <p class="eyebrow">Curated Experiences</p>
-      <div class="s-title">
-  <div class="brush">Combined</div>
-  <div class="pkg-pkg">Treatments</div>
-</div>
+    <div class="section-head rv vis">
+      <div class="pkg-title">
+        <div class="brush">Combined</div>
+        <div class="pkg-pkg">Treatments</div>
+      </div>
       <div class="gold-rule"></div>
       <p class="s-body">Combine treatments for a complete wellness journey. All prices excl. 10% BTW.</p>
     </div>
+
     <div class="pkg-grid">
-      <div class="pkg-sidebar rv">
+      <div class="pkg-sidebar rv vis">
         <div class="pkg-tabs">
           <button class="pkg-btn on" onclick="showPkg(event,'therapeutic')">Therapeutic <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'podo')">Podo <span class="arrow">→</span></button>
-         <button class="pkg-btn" onclick="showPkg(event,'sweti')">Sweti <span class="arrow">→</span></button>
-         <button class="pkg-btn" onclick="showPkg(event,'dampu')">Dampu <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'sweti')">Dampu <span class="arrow">→</span></button>
+          <button class="pkg-btn" onclick="showPkg(event,'dampu')">Sweti <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'kids')">Kids <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'signature')">Signature <span class="arrow">→</span></button>
-          
         </div>
       </div>
-      <div class="rv d1">
-        <!-- Traditional -->
-       
-      
-        <!-- Sweti -->
+
+      <div class="rv d1 vis">
         <div class="pkg-panel on" id="pp-therapeutic">
           <div class="pkg-head">
-            <div class="s-title">Therapeutic<i class="pkg-pkg">Packages</i></div>
-            <p class="pkg-desc">Combinaties van de traditionele behandelingen speciaal gericht op lichamelijke aandoeningen
-             z.a. spierpijnen, pijnen op specifieke lichaamsdelen of chronische gewrichtspijnen</p>
+            <div class="s-title">Therapeutic <i class="pkg-pkg">Packages</i></div>
+            <p class="pkg-desc">Combinaties van de traditionele behandelingen speciaal gericht op lichamelijke aandoeningen z.a. spierpijnen, pijnen op specifieke lichaamsdelen of chronische gewrichtspijnen.</p>
           </div>
           <div class="pkg-rows">
-            <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Ali skin</div><div class="pkg-row-price">SRD 1,745</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 1,745</div></div>
             <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Ali Skin</div><div class="pkg-row-price">SRD 1,645</div></div>
-           <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Deeptissue</div><div class="pkg-row-price">SRD 1,545</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Deeptissue</div><div class="pkg-row-price">SRD 1,545</div></div>
             <div class="pkg-row"><div class="pkg-row-name">Sweti, Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 2,385</div></div>
-           <div class="pkg-row"><div class="pkg-row-name">Podo, Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 2,535</div></div>
-           <div class="pkg-row"><div class="pkg-row-name">Deep Tissue </div><div class="pkg-row-price">SRD 850</div></div>
-           <div class="pkg-row"><div class="pkg-row-name">Relax </div><div class="pkg-row-price">SRD 800</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podo, Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 2,535</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Deep Tissue</div><div class="pkg-row-price">SRD 850</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Relax</div><div class="pkg-row-price">SRD 800</div></div>
           </div>
           <div class="pkg-footer"><p class="pkg-note">*incl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
         </div>
 
-       <!-- Dampu -->
-        <div class="pkg-panel on" id="pp-dampu">
-          <div class="pkg-head">
-            <div class="s-title">Dampu <i class="pkg-pkg">Combinations</i></div>
-            <p class="pkg-desc">Targeted combinations for muscle pain, joint issues, specific body parts and chronic complaints.</p>
-          </div>
-          <div class="pkg-rows">
-            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Dampu</div><div class="pkg-row-price">SRD 1,545</div></div>
-            <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Relax</div><div class="pkg-row-price">SRD 1,495</div></div>
-           <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Deeptissue</div><div class="pkg-row-price">SRD 1,545</div></div>
-            <div class="pkg-row"><div class="pkg-row-name">Dampu, Podo &amp; Relax</div><div class="pkg-row-price">SRD 2,235</div></div>
-           <div class="pkg-row"><div class="pkg-row-name">Dampu, Podo &amp; Deeptissue</div><div class="pkg-row-price">SRD 2,285</div></div>
-          
-          </div>
-          <div class="pkg-footer"><p class="pkg-note">*incl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
-        </div>
-        <!-- Podo -->
         <div class="pkg-panel" id="pp-podo">
           <div class="pkg-head">
             <div class="s-title">Podo <i class="pkg-pkg">Treatments</i></div>
@@ -1787,15 +1772,44 @@ html, body{
           </div>
           <div class="pkg-rows">
             <div class="pkg-row"><div class="pkg-row-name">Full Body Scrub</div><div class="pkg-row-price">SRD 900</div></div>
-            <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Sweti</div><div class="pkg-row-price">SRD 1595</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Sweti</div><div class="pkg-row-price">SRD 1,595</div></div>
             <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Dampu</div><div class="pkg-row-price">SRD 1,695</div></div>
             <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Relax</div><div class="pkg-row-price">SRD 1,645</div></div>
             <div class="pkg-row"><div class="pkg-row-name">Podoscrub &amp; Deep Tissue</div><div class="pkg-row-price">SRD 1,695</div></div>
           </div>
           <div class="pkg-footer"><p class="pkg-note">*incl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
         </div>
-  <!-- Kids -->
-<div class="pkg-panel" id="pp-kids">
+
+        <div class="pkg-panel" id="pp-sweti">
+          <div class="pkg-head">
+            <div class="s-title">Sweti <i class="pkg-pkg">Combinations</i></div>
+            <p class="pkg-desc">Steam-based combinations for cleansing, relaxation, skin care and full-body restoration.</p>
+          </div>
+          <div class="pkg-rows">
+            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Ali Skin</div><div class="pkg-row-price">SRD 1,645</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Deeptissue</div><div class="pkg-row-price">SRD 1,545</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Dampu</div><div class="pkg-row-price">SRD 1,545</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Sweti, Dampu &amp; Ali Skin</div><div class="pkg-row-price">SRD 2,385</div></div>
+          </div>
+          <div class="pkg-footer"><p class="pkg-note">*incl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
+        </div>
+
+        <div class="pkg-panel" id="pp-dampu">
+          <div class="pkg-head">
+            <div class="s-title">Dampu <i class="pkg-pkg">Combinations</i></div>
+            <p class="pkg-desc">Targeted combinations for muscle pain, joint issues, specific body parts and chronic complaints.</p>
+          </div>
+          <div class="pkg-rows">
+            <div class="pkg-row"><div class="pkg-row-name">Sweti &amp; Dampu</div><div class="pkg-row-price">SRD 1,545</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Relax</div><div class="pkg-row-price">SRD 1,495</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Dampu &amp; Deeptissue</div><div class="pkg-row-price">SRD 1,545</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Dampu, Podo &amp; Relax</div><div class="pkg-row-price">SRD 2,235</div></div>
+            <div class="pkg-row"><div class="pkg-row-name">Dampu, Podo &amp; Deeptissue</div><div class="pkg-row-price">SRD 2,285</div></div>
+          </div>
+          <div class="pkg-footer"><p class="pkg-note">*incl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
+        </div>
+
+        <div class="pkg-panel" id="pp-kids">
           <div class="pkg-head">
             <div class="s-title">Kids <i class="pkg-pkg">Treatments</i></div>
             <p class="pkg-desc">Gentle, caring treatments supporting healthy growth, immune strength, relaxation and radiant skin for the little ones.</p>
@@ -1807,27 +1821,18 @@ html, body{
           </div>
           <div class="pkg-footer"><p class="pkg-note">*excl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
         </div>
-       
-        <!-- Signature -->
+
         <div class="pkg-panel" id="pp-signature">
           <div class="pkg-head">
-            <div class="s-title">Signature <i class:"pkg-pkg">Packages</i></div>
+            <div class="s-title">Signature <i class="pkg-pkg">Packages</i></div>
             <p class="pkg-desc">The ultimate expression of Traditional Maroon wellness — our most celebrated curated experiences.</p>
           </div>
           <div class="pkg-rows">
-            <div class="pkg-row feat">
-              <div><div class="pkg-row-name">Package+</div><div class="pkg-row-sub">Sweti · Dampu · Full Body Podoscrub · Relax Massage · The ultimate Maroon experience</div></div>
-              <div class="pkg-row-price">SRD 2,500</div>
-            </div>
-            <div class="pkg-row feat">
-              <div><div class="pkg-row-name">Uma Package</div><div class="pkg-row-sub">Sweti · Dampu · Bakapasi · Full Body Podoscrub · Relax Massage · Women's complete renewal ritual</div></div>
-              <div class="pkg-row-price">SRD 2,750</div>
-            </div>
+            <div class="pkg-row feat"><div><div class="pkg-row-name">Package+</div><div class="pkg-row-sub">Sweti · Dampu · Full Body Podoscrub · Relax Massage · The ultimate Maroon experience</div></div><div class="pkg-row-price">SRD 2,500</div></div>
+            <div class="pkg-row feat"><div><div class="pkg-row-name">Uma Package</div><div class="pkg-row-sub">Sweti · Dampu · Bakapasi · Full Body Podoscrub · Relax Massage · Women's complete renewal ritual</div></div><div class="pkg-row-price">SRD 2,750</div></div>
           </div>
           <div class="pkg-footer"><p class="pkg-note">*excl. 10% BTW</p><button class="btn-sm" onclick="openBM()">Request Date</button></div>
         </div>
-      
-        
       </div>
     </div>
   </div>
@@ -1895,10 +1900,18 @@ const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 function showPkg(e,id){
-  document.querySelectorAll('.pkg-btn').forEach(b=>b.classList.remove('on'));
-  document.querySelectorAll('.pkg-panel').forEach(p=>p.classList.remove('on'));
-  e.currentTarget.classList.add('on');
-  document.getElementById('pp-'+id).classList.add('on');
+  if(e) e.preventDefault();
+  const root = document.getElementById('packages');
+  if(!root) return;
+
+  root.querySelectorAll('.pkg-btn').forEach(b=>b.classList.remove('on'));
+  root.querySelectorAll('.pkg-panel').forEach(p=>p.classList.remove('on'));
+
+  const btn = e && e.currentTarget ? e.currentTarget : root.querySelector(`.pkg-btn[onclick*="'${id}'"]`);
+  const panel = document.getElementById('pp-' + id);
+
+  if(btn) btn.classList.add('on');
+  if(panel) panel.classList.add('on');
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -2127,10 +2140,10 @@ document.addEventListener('DOMContentLoaded', function(){
           <select id="wa_treatment" required>
             <option value="">Select...</option>
             <optgroup label="Therapeutic Packages">
-              <option>Dampu &amp; Ai Skin</option>
-              <option>Sweti &amp; Ai Skin</option>
-              <option>Sweti, Dampu &amp; Ai Skin</option>
-              <option>Podo, Dampu &amp; Ai Skin</option>
+              <option>Dampu &amp; Ali Skin</option>
+              <option>Sweti &amp; Ali Skin</option>
+              <option>Sweti, Dampu &amp; Ali Skin</option>
+              <option>Podo, Dampu &amp; Ali Skin</option>
             </optgroup>
             <optgroup label="Podo Packages">
               <option>Podo Basic</option>
@@ -2248,6 +2261,36 @@ document.addEventListener('DOMContentLoaded', function(){
   <span>📲</span>
   Book via WhatsApp
 </a>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('[data-package]');
+    const panels = document.querySelectorAll('.pkg-panel');
+
+    function showPackage(name) {
+        buttons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.package === name);
+        });
+
+        panels.forEach(panel => {
+            if (panel.id === 'pkg-' + name) {
+                panel.style.display = 'block';
+            } else {
+                panel.style.display = 'none';
+            }
+        });
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            showPackage(this.dataset.package);
+        });
+    });
+
+    showPackage('therapeutic');
+});
+</script>
 
 </body>
 </html>
