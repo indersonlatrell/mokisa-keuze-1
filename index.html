@@ -9,23 +9,6 @@
 
 <style>
 
-.pkg-btn.signature{
-  background: linear-gradient(135deg,#2a1608,#5b3a12);
-  border-color:#c6923b;
-  color:#f2d19b;
-  box-shadow:0 0 18px rgba(198,146,59,.18);
-}
-
-.pkg-btn.signature:hover{
-  transform:translateX(4px);
-  box-shadow:0 0 26px rgba(198,146,59,.28);
-}
-
- #pp-signature{
-  background:rgba(255,215,160,.03);
-  border:1px solid rgba(214,168,90,.35);
-}
- 
 .pkg-title,
 .story {
   display: flex;
@@ -1511,6 +1494,52 @@ html, body{
   display:block;
 }
 
+
+/* ===== Premium Signature Button ===== */
+.pkg-btn{
+  position:relative;
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.pkg-btn:hover{
+  background:rgba(184,147,90,.08) !important;
+  border-color:rgba(184,147,90,.45) !important;
+  transform:translateX(4px);
+}
+
+.pkg-btn.on,
+.pkg-btn.active{
+  background:rgba(184,147,90,.12);
+  border-color:rgba(184,147,90,.55);
+}
+
+.pkg-btn.signature{
+  background:linear-gradient(
+    135deg,
+    rgba(88,54,18,.95),
+    rgba(43,24,8,.95)
+  ) !important;
+
+  border:1px solid rgba(214,168,90,.55) !important;
+  color:#f1d19a !important;
+  box-shadow:0 0 22px rgba(214,168,90,.12);
+}
+
+.pkg-btn.signature:hover{
+  transform:translateX(6px);
+  background:linear-gradient(
+    135deg,
+    rgba(120,74,24,.98),
+    rgba(58,32,10,.98)
+  ) !important;
+
+  box-shadow:0 0 28px rgba(214,168,90,.22);
+}
+
 </style>
 </head>
 <body>
@@ -1788,7 +1817,7 @@ html, body{
           <button class="pkg-btn" onclick="showPkg(event,'sweti')">Sweti <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'dampu')">Dampu <span class="arrow">→</span></button>
           <button class="pkg-btn" onclick="showPkg(event,'kids')">Kids <span class="arrow">→</span></button>
-          <button class="pkg-btn" onclick="showPkg(event,'signature')">Signature <span class="arrow">→</span></button>
+          <button class="pkg-btn signature" onclick="showPkg(event,'signature')">Signature <span class="arrow">→</span></button>
         </div>
       </div>
 
